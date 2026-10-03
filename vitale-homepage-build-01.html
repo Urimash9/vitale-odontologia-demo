@@ -49,11 +49,11 @@
     /* Hero */
     .hero { min-height: 720px; position: relative; display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(390px, .95fr); }
     .hero-copy { align-self: center; padding: 8rem 5vw 8rem max(32px, calc((100vw - var(--max))/2)); position: relative; z-index: 2; }
-    .hero h1 { max-width: 760px; margin: 1.25rem 0 1.6rem; font-size: clamp(4rem, 6.5vw, 7.3rem); line-height: .91; letter-spacing: -.055em; }
+    .hero h1 { width: 118%; max-width: 840px; margin: 1.25rem 0 1.6rem; position: relative; z-index: 4; font-size: clamp(4rem, 6.5vw, 7.3rem); line-height: .91; letter-spacing: -.055em; }
     .hero h1 span { display: block; margin-left: clamp(1rem, 5vw, 5rem); color: var(--contrast); }
     .hero-copy > p { max-width: 550px; font-size: 1rem; }
     .hero-actions { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 2.3rem; }
-    .hero-visual { margin: 2rem 2rem 2rem 0; position: relative; min-height: 620px; overflow: hidden; border-radius: 14rem 14rem 1rem 1rem; background: #e7ddd0; }
+    .hero-visual { margin: 2rem -3vw 2rem -2vw; position: relative; min-height: 620px; overflow: hidden; border-radius: 48% 0 0 7rem; background: #e7ddd0; transform: rotate(.5deg); }
     .hero-visual::before, .hero-visual::after { content: ''; position: absolute; z-index: 2; width: 72%; aspect-ratio: 2/1; border: 1px solid rgba(184,146,85,.45); border-radius: 50%; }
     .hero-visual::before { right: -17%; top: 8%; transform: rotate(-19deg); }
     .hero-visual::after { right: 6%; top: 21%; transform: rotate(16deg); }
@@ -62,10 +62,12 @@
     .hero-note { position: absolute; right: calc(50% - 8px); bottom: 6rem; z-index: 4; writing-mode: vertical-rl; color: var(--taupe); font-size: .58rem; letter-spacing: .2em; text-transform: uppercase; }
 
     /* Pillars */
-    .pillars { border-block: 1px solid var(--line); background: var(--porcelain); }
-    .pillar-list { display: grid; grid-template-columns: repeat(4, 1fr); margin: 0; padding: 0; list-style: none; }
-    .pillar-list li { min-height: 150px; padding: 2.1rem 1.5rem; position: relative; border-left: 1px solid var(--line); }
-    .pillar-list li:last-child { border-right: 1px solid var(--line); }
+    .pillars { position: relative; z-index: 3; margin-top: -1.6rem; padding-block: 5rem 6rem; background: var(--porcelain); clip-path: ellipse(100% 72% at 50% 55%); }
+    .pillar-list { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); margin: 0; padding: 0; list-style: none; }
+    .pillar-list::before { content: ''; position: absolute; left: 4%; right: 4%; top: 54%; height: 52px; border-top: 1px solid rgba(184,146,85,.55); border-radius: 50%; transform: rotate(-1.5deg); }
+    .pillar-list li { min-height: 150px; padding: 1rem 1.5rem; position: relative; }
+    .pillar-list li:nth-child(2), .pillar-list li:nth-child(4) { transform: translateY(2rem); }
+    .pillar-list li::after { content: ''; position: absolute; top: 50%; left: 1.5rem; width: 9px; height: 11px; border: 1px solid var(--gold); border-radius: 55% 55% 44% 44%; background: var(--porcelain); transform: rotate(8deg); }
     .pillar-number { display: block; margin-bottom: 1.8rem; color: var(--gold); font: 400 .8rem/1 var(--serif); }
     .pillar-list strong { display: block; font: 400 1.05rem/1.2 var(--serif); }
 
@@ -75,30 +77,51 @@
     .body-copy { max-width: 530px; font-size: .95rem; }
     .visual-frame { min-height: 580px; position: relative; overflow: hidden; background: var(--sand); }
     .visual-frame::after { content: ''; position: absolute; inset: 1.2rem; border: 1px solid rgba(198,165,109,.4); border-radius: 50% 50% 0 0; pointer-events: none; }
-    .feature-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin: 2.3rem 0 0; padding: 0; list-style: none; }
-    .feature-list li { padding: 1rem 1rem 1rem 0; border-top: 1px solid var(--line); color: var(--taupe); font-size: .78rem; }
+    .experience-composition { position: relative; min-height: 820px; }
+    .experience-composition .visual-frame { width: 64%; min-height: 680px; margin-left: -5vw; clip-path: polygon(0 0, 88% 0, 100% 12%, 94% 100%, 0 94%); }
+    .experience-copy { position: absolute; z-index: 2; width: min(54%, 650px); right: 0; top: 17%; padding: 3.5rem 0 3.5rem 4.5rem; background: linear-gradient(90deg, rgba(247,243,236,.94), var(--ivory) 24%); }
+    .feature-list { position: absolute; z-index: 3; right: 1%; bottom: 5%; width: 58%; margin: 0; padding: 0 0 0 3.5rem; list-style: none; columns: 2; column-gap: 3rem; }
+    .feature-list::before { content: ''; position: absolute; inset: -1rem auto -1rem 0; width: 22px; background: repeating-linear-gradient(90deg, rgba(169,125,94,.2) 0 1px, transparent 1px 6px); }
+    .feature-list li { break-inside: avoid; padding: .65rem 0; color: var(--taupe); font-size: .72rem; letter-spacing: .04em; }
 
     /* Treatments */
-    .treatments { background: var(--sand); }
+    .treatments { position: relative; margin-top: -4rem; padding-top: 12rem; overflow: hidden; background: var(--sand); }
     .section-intro { display: grid; grid-template-columns: 1fr .65fr; gap: 3rem; align-items: end; margin-bottom: 4rem; }
     .section-intro h2 { max-width: 740px; margin-bottom: 0; }
     .section-intro p { max-width: 430px; font-size: .9rem; }
-    .treatment-list { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid rgba(117,106,95,.35); }
-    .treatment { min-height: 190px; display: grid; grid-template-columns: 52px 1fr; gap: 1rem; padding: 2rem 5vw 2rem 0; border-bottom: 1px solid rgba(117,106,95,.35); }
-    .treatment:nth-child(odd) { border-right: 1px solid rgba(117,106,95,.35); }
-    .treatment:nth-child(even) { padding-left: 5vw; }
+    .treatment-list { position: relative; min-height: 990px; display: block; }
+    .clinical-path { position: absolute; inset: -2rem 21% 0 22%; width: 57%; height: 100%; overflow: visible; pointer-events: none; }
+    .clinical-path path { fill: none; stroke: rgba(184,146,85,.55); stroke-width: 1.15; vector-effect: non-scaling-stroke; }
+    .treatment { position: absolute; width: 38%; min-height: 0; display: grid; grid-template-columns: 46px 1fr; gap: 1rem; padding: 0; }
+    .treatment::before { content: ''; position: absolute; top: .25rem; width: 10px; height: 13px; border: 1px solid var(--gold); border-radius: 55% 55% 45% 45%; background: var(--sand); }
+    .treatment:nth-of-type(1) { top: 2%; left: 5%; }
+    .treatment:nth-of-type(2) { top: 16%; right: 3%; }
+    .treatment:nth-of-type(3) { top: 37%; left: 15%; }
+    .treatment:nth-of-type(4) { top: 51%; right: 8%; width: 43%; }
+    .treatment:nth-of-type(5) { top: 74%; left: 4%; width: 43%; }
+    .treatment:nth-of-type(6) { top: 84%; right: 16%; }
+    .treatment:nth-of-type(even)::before { right: -21%; }
+    .treatment:nth-of-type(odd)::before { left: -18%; }
     .treatment .number { color: var(--gold); font-size: .68rem; letter-spacing: .12em; }
     .treatment h3 { margin: -.25rem 0 .7rem; font-size: clamp(1.65rem, 2.4vw, 2.6rem); }
     .treatment p { max-width: 390px; margin: 0; font-size: .8rem; }
 
     /* Amanda */
     .amanda { background: var(--porcelain); }
-    .amanda .split { grid-template-columns: 1.05fr .95fr; }
-    .portrait { min-height: 720px; border-radius: 16rem 16rem 0 0; }
+    .amanda { position: relative; margin-top: -6rem; padding-top: 13rem; }
+    .amanda-editorial { position: relative; min-height: 900px; }
+    .amanda .portrait { width: 56%; min-height: 780px; margin-left: 9%; border-radius: 15rem 15rem 0 0; }
     .portrait::after { display: none; }
+    .amanda-copy { position: absolute; z-index: 3; right: 0; top: 11%; width: 52%; }
+    .amanda-copy h2 { margin-left: -32%; padding: 1rem 0 1.3rem 5%; background: linear-gradient(90deg, rgba(255,253,252,.9), var(--porcelain) 68%); }
+    .amanda-copy .body-copy, .amanda-copy .role, .amanda-copy .button { margin-left: 24%; }
     .role { display: inline-block; margin-bottom: 1.2rem; color: var(--wood); font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; }
-    .areas { display: flex; flex-wrap: wrap; gap: .5rem; margin: 2rem 0; }
-    .areas span { padding: .55rem .8rem; border-bottom: 1px solid var(--champagne); color: var(--taupe); font-size: .7rem; }
+    .areas { position: absolute; left: -86%; bottom: 2%; width: 62%; min-height: 230px; margin: 0; }
+    .areas span { position: absolute; color: var(--taupe); font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; }
+    .areas span:nth-child(1) { left: 6%; top: 8%; } .areas span:nth-child(2) { right: 6%; top: 22%; }
+    .areas span:nth-child(3) { left: 32%; top: 48%; } .areas span:nth-child(4) { left: 0; bottom: 5%; }
+    .areas span:nth-child(5) { right: 0; bottom: 2%; }
+    .areas::before { content: ''; position: absolute; inset: 20% 8%; border: 1px solid rgba(198,165,109,.45); border-radius: 50%; transform: rotate(-12deg); }
 
     /* Precision */
     .precision { position: relative; overflow: hidden; color: var(--porcelain); background: var(--contrast); }
@@ -106,25 +129,36 @@
     .precision .eyebrow { color: var(--champagne); }
     .precision h2 { max-width: 690px; }
     .precision p { color: #d9d0c7; }
-    .precision .visual-frame { min-height: 540px; background: #5a4d42; border-radius: 1px 10rem 1px 1px; }
+    .precision .split { min-height: 730px; position: relative; }
+    .precision .visual-frame { min-height: 650px; margin-right: -9vw; background: #5a4d42; clip-path: ellipse(58% 50% at 54% 50%); }
     .precision .visual-frame::after { border-radius: 0; border-color: rgba(198,165,109,.26); }
     .precision .asset-slot { background: linear-gradient(145deg, rgba(43,41,38,.25), rgba(198,165,109,.12)), repeating-linear-gradient(90deg, transparent 0 34px, rgba(255,253,252,.03) 35px); }
     .precision .slot-label { color: var(--porcelain); background: rgba(75,64,54,.8); border-color: rgba(255,253,252,.18); }
+    .precision-notes { position: absolute; z-index: 4; right: -2%; bottom: 9%; display: grid; gap: .65rem; color: #d9d0c7; font-size: .62rem; letter-spacing: .16em; text-transform: uppercase; }
+    .precision-notes span::before { content: ''; display: inline-block; width: 26px; height: 1px; margin-right: .7rem; vertical-align: middle; background: var(--champagne); }
 
     /* Results */
     .results .section-intro { grid-template-columns: 1fr 1fr; }
-    .result-layout { display: grid; grid-template-columns: 1.3fr .7fr; gap: 1rem; }
-    .result-slot { min-height: 490px; position: relative; overflow: hidden; background: var(--sand); }
-    .result-stack { display: grid; grid-template-rows: 1fr 1fr; gap: 1rem; }
-    .result-stack .result-slot { min-height: 0; }
+    .results { overflow: hidden; }
+    .results .section-intro h2 { position: relative; z-index: 3; transform: translateY(2.5rem); }
+    .result-layout { position: relative; min-height: 820px; }
+    .result-slot { position: absolute; overflow: hidden; background: var(--sand); }
+    .result-layout > .result-slot { left: 6%; top: 7%; width: 42%; height: 680px; border-radius: 12rem 12rem 0 0; }
+    .result-stack { display: contents; }
+    .result-stack .result-slot:first-child { right: 3%; top: 0; width: 43%; height: 330px; }
+    .result-stack .result-slot:last-child { right: 14%; bottom: 3%; width: 30%; height: 310px; transform: rotate(2deg); }
 
     /* Clinic */
     .clinic { background: var(--sand); }
     .clinic-heading { max-width: 650px; margin-bottom: 3rem; }
-    .clinic-layout { display: grid; grid-template-columns: 1.35fr .65fr; grid-template-rows: 300px 220px; gap: 1rem; }
-    .clinic-slot { position: relative; overflow: hidden; background: var(--porcelain); }
-    .clinic-slot:first-child { grid-row: 1 / 3; }
-    .clinic-slot:nth-child(3) { width: 82%; }
+    .clinic { position: relative; padding-bottom: 12rem; overflow: hidden; }
+    .clinic::after { content: ''; position: absolute; right: 4%; top: 12%; width: 38px; height: 70%; background: repeating-linear-gradient(90deg, rgba(169,125,94,.14) 0 1px, transparent 1px 7px); }
+    .clinic-layout { position: relative; min-height: 900px; }
+    .clinic-slot { position: absolute; overflow: hidden; background: var(--porcelain); }
+    .clinic-slot:nth-child(1) { left: 0; top: 4%; width: 58%; height: 600px; clip-path: polygon(0 0, 92% 0, 100% 10%, 95% 100%, 0 100%); }
+    .clinic-slot:nth-child(2) { right: 3%; top: 0; width: 32%; height: 330px; border-radius: 9rem 9rem 0 0; }
+    .clinic-slot:nth-child(3) { right: 13%; top: 43%; width: 30%; height: 290px; }
+    .clinic-slot:nth-child(4) { left: 16%; bottom: 0; width: 38%; height: 260px; transform: translateY(12%); }
     .clinic-actions { display: flex; justify-content: flex-end; margin-top: 2rem; }
 
     /* Social proof */
@@ -136,10 +170,10 @@
 
     /* Location and CTA */
     .location { padding-block: 0; background: var(--ivory); }
-    .location-grid { display: grid; grid-template-columns: .85fr 1.15fr; }
+    .location-grid { display: grid; grid-template-columns: .85fr 1.15fr; position: relative; }
     .location-copy { padding: clamp(4rem, 8vw, 8rem) clamp(2rem, 7vw, 7rem) clamp(4rem, 8vw, 8rem) max(32px, calc((100vw - var(--max))/2)); }
     .address { margin: 2rem 0; font: 400 1.2rem/1.6 var(--serif); color: var(--ink); }
-    .map-art { min-height: 540px; position: relative; overflow: hidden; background: #e5dacd; }
+    .map-art { min-height: 540px; position: relative; z-index: 2; margin-left: -3rem; overflow: hidden; background: #e5dacd; border-radius: 45% 0 0 45%; }
     .map-art::before, .map-art::after { content: ''; position: absolute; width: 140%; height: 1px; background: rgba(117,106,95,.27); transform: rotate(-28deg); top: 45%; left: -20%; box-shadow: 0 80px rgba(117,106,95,.18), 0 -100px rgba(117,106,95,.2); }
     .map-art::after { transform: rotate(32deg); }
     .map-pin { position: absolute; inset: 0; display: grid; place-items: center; }
@@ -174,20 +208,26 @@
       .mobile-nav .button { margin-top: .8rem; }
       .hero { min-height: auto; grid-template-columns: 1fr; padding: 2rem 20px 4rem; }
       .hero-copy { padding: 3.5rem 0 2.5rem; }
-      .hero h1 { font-size: clamp(3.5rem, 11vw, 6rem); }
+      .hero h1 { width: auto; font-size: clamp(3.5rem, 11vw, 6rem); }
       .hero-visual { order: -1; width: 72%; min-height: 480px; margin: 1rem 0 0 auto; border-radius: 12rem 12rem .5rem .5rem; }
       .hero-note { right: auto; left: 2px; bottom: 8rem; }
+      .pillars { clip-path: ellipse(120% 72% at 50% 52%); }
       .pillar-list { grid-template-columns: 1fr 1fr; }
-      .pillar-list li:nth-child(3) { border-top: 1px solid var(--line); }
-      .pillar-list li:nth-child(4) { border-top: 1px solid var(--line); border-right: 1px solid var(--line); }
+      .pillar-list::before { top: 58%; }
       .split, .amanda .split { grid-template-columns: 1fr; gap: 3rem; }
       .visual-frame, .portrait { min-height: 560px; }
-      .amanda .visual-frame { order: 2; }
+      .experience-composition { min-height: 900px; }
+      .experience-composition .visual-frame { width: 78%; min-height: 610px; }
+      .experience-copy { width: 62%; top: 12%; padding-left: 2.5rem; }
+      .feature-list { width: 72%; }
+      .amanda-editorial { min-height: 900px; }
+      .amanda .portrait { width: 67%; margin-left: 0; }
+      .amanda-copy { width: 60%; }
       .section-intro { grid-template-columns: 1fr; gap: 1rem; }
-      .clinic-layout { grid-template-rows: 270px 190px; }
+      .clinic-layout { min-height: 800px; }
       .location-grid { grid-template-columns: 1fr; }
       .location-copy { padding-inline: 20px; }
-      .map-art { min-height: 400px; }
+      .map-art { min-height: 400px; margin-left: 0; border-radius: 45% 45% 0 0; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 560px) {
@@ -203,20 +243,54 @@
       .hero-actions { display: grid; }
       .hero-visual { width: 82%; min-height: 350px; border-radius: 9rem 9rem .3rem .3rem; }
       .hero-note { display: none; }
-      .pillar-list li { min-height: 132px; padding: 1.4rem 1rem; }
+      .pillars { margin-top: -1rem; padding-block: 4rem 5rem; clip-path: ellipse(155% 72% at 50% 52%); }
+      .pillar-list { display: block; min-height: 450px; }
+      .pillar-list::before { left: 48%; right: auto; top: 2%; width: 42px; height: 94%; border-top: 0; border-left: 1px solid rgba(184,146,85,.55); transform: rotate(3deg); }
+      .pillar-list li { position: absolute; width: 46%; min-height: 0; padding: 0; transform: none !important; }
+      .pillar-list li:nth-child(1) { left: 0; top: 4%; } .pillar-list li:nth-child(2) { right: 0; top: 27%; }
+      .pillar-list li:nth-child(3) { left: 3%; top: 55%; } .pillar-list li:nth-child(4) { right: 0; top: 81%; }
+      .pillar-list li::after { left: auto; right: -12%; top: 1.8rem; }
+      .pillar-list li:nth-child(even)::after { right: auto; left: -12%; }
       .pillar-number { margin-bottom: 1.2rem; }
       .section { padding-block: 4.5rem; }
       h2 { font-size: clamp(2.25rem, 12vw, 3.4rem); }
       .visual-frame, .portrait, .precision .visual-frame { min-height: 420px; }
-      .feature-list { grid-template-columns: 1fr; }
-      .treatment-list { grid-template-columns: 1fr; }
-      .treatment, .treatment:nth-child(even) { min-height: 160px; padding: 1.7rem 0; border-right: 0; }
-      .result-layout { grid-template-columns: 1fr; }
-      .result-slot { min-height: 330px; }
-      .result-stack { grid-template-columns: 1fr 1fr; grid-template-rows: 210px; }
-      .clinic-layout { grid-template-columns: 1fr 1fr; grid-template-rows: 300px 190px; }
-      .clinic-slot:first-child { grid-column: 1 / 3; grid-row: auto; }
-      .clinic-slot:nth-child(3) { width: 100%; }
+      .experience-composition { min-height: 900px; }
+      .experience-composition .visual-frame { width: 87%; min-height: 500px; margin-left: -16px; }
+      .experience-copy { width: 86%; top: 36%; padding: 2.2rem 0 2rem 1.5rem; }
+      .experience-copy h2 { font-size: 2.55rem; }
+      .feature-list { width: 90%; right: 0; bottom: 0; padding-left: 2.4rem; columns: 1; }
+      .treatments { margin-top: -3rem; padding-top: 8rem; }
+      .treatment-list { min-height: 1040px; }
+      .clinical-path { inset: 0 auto 0 44%; width: 38%; }
+      .treatment { width: 47% !important; grid-template-columns: 28px 1fr; gap: .35rem; }
+      .treatment h3 { font-size: 1.45rem; line-height: 1.05; }
+      .treatment p { font-size: .69rem; line-height: 1.45; }
+      .treatment:nth-of-type(1) { left: 0; top: 1%; } .treatment:nth-of-type(2) { right: 0; top: 16%; }
+      .treatment:nth-of-type(3) { left: 2%; top: 33%; } .treatment:nth-of-type(4) { right: 0; top: 49%; }
+      .treatment:nth-of-type(5) { left: 0; top: 69%; } .treatment:nth-of-type(6) { right: 0; top: 85%; }
+      .treatment:nth-of-type(even)::before { right: -11%; } .treatment:nth-of-type(odd)::before { left: -9%; }
+      .amanda { margin-top: -4rem; padding-top: 9rem; }
+      .amanda-editorial { min-height: 980px; }
+      .amanda .portrait { width: 82%; min-height: 590px; margin-left: -16px; border-radius: 11rem 11rem 0 0; }
+      .amanda-copy { width: 90%; top: 42%; right: 0; }
+      .amanda-copy h2 { margin-left: 0; padding: 1.5rem 0 1.5rem 1.4rem; font-size: 2.6rem; }
+      .amanda-copy .body-copy, .amanda-copy .role, .amanda-copy .button { margin-left: 18%; }
+      .areas { left: -5%; bottom: -15rem; width: 100%; }
+      .precision .split { min-height: 900px; }
+      .precision .visual-frame { min-height: 500px; width: 112%; margin: -1rem -6% 0; clip-path: ellipse(59% 49% at 55% 50%); }
+      .precision-notes { right: 0; bottom: 3%; }
+      .results .section-intro h2 { transform: none; }
+      .result-layout { min-height: 790px; }
+      .result-layout > .result-slot { left: 0; top: 0; width: 67%; height: 520px; }
+      .result-stack .result-slot:first-child { right: 0; top: 28%; width: 47%; height: 250px; }
+      .result-stack .result-slot:last-child { right: 9%; bottom: 0; width: 43%; height: 230px; }
+      .clinic { padding-bottom: 8rem; }
+      .clinic-layout { min-height: 850px; }
+      .clinic-slot:nth-child(1) { width: 88%; height: 420px; }
+      .clinic-slot:nth-child(2) { right: 0; top: 36%; width: 47%; height: 270px; }
+      .clinic-slot:nth-child(3) { right: 18%; top: 66%; width: 53%; height: 230px; }
+      .clinic-slot:nth-child(4) { left: 0; bottom: -5%; width: 43%; height: 210px; }
       .clinic-actions { justify-content: flex-start; }
       .social-shell { grid-template-columns: 1fr; gap: 1rem; padding-inline: 0; }
       .google-mark { width: 64px; height: 64px; }
@@ -273,9 +347,9 @@
     </section>
 
     <section class="section" aria-labelledby="experience-title">
-      <div class="container split">
+      <div class="container experience-composition">
         <div class="visual-frame" data-reveal><div class="asset-slot" data-asset-slot="clinic-detail" role="img" aria-label="Espaço reservado para detalhe arquitetônico da clínica"><span class="slot-label">Arquitetura Vitale · Build 02</span></div></div>
-        <div data-reveal>
+        <div class="experience-copy" data-reveal>
           <div class="eyebrow">A experiência Vitale</div>
           <h2 id="experience-title">Odontologia que une ciência, precisão e cuidado.</h2>
           <p class="body-copy">Uma experiência pensada para que cada pessoa se sinta ouvida e segura, com planejamento individualizado, atenção aos detalhes e um ambiente acolhedor em Monte Carmelo.</p>
@@ -291,6 +365,7 @@
           <p>Possibilidades de tratamento conduzidas a partir das necessidades de cada pessoa, com clareza e planejamento.</p>
         </div>
         <div class="treatment-list">
+          <svg class="clinical-path" viewBox="0 0 520 1000" preserveAspectRatio="none" aria-hidden="true"><path d="M260 0 C190 92 335 129 269 226 C205 318 158 353 241 433 C315 504 357 562 264 640 C194 699 184 756 254 817 C295 853 270 927 226 1000 M269 226 C348 238 386 281 397 342 M241 433 C168 460 121 510 118 574 M264 640 C336 668 373 709 369 760"/></svg>
           <article class="treatment"><span class="number">01</span><div><h3>Endodontia</h3><p>Cuidado técnico orientado à preservação da saúde e da função dental.</p></div></article>
           <article class="treatment"><span class="number">02</span><div><h3>Cirurgia</h3><p>Planejamento individual e atenção cuidadosa em todas as etapas.</p></div></article>
           <article class="treatment"><span class="number">03</span><div><h3>Implantes</h3><p>Soluções voltadas à recuperação de função, equilíbrio e conforto.</p></div></article>
@@ -302,9 +377,9 @@
     </section>
 
     <section class="section amanda" id="amanda" aria-labelledby="amanda-title">
-      <div class="container split">
+      <div class="container amanda-editorial">
         <div class="visual-frame portrait" data-reveal><div class="asset-slot" data-asset-slot="amanda-portrait" role="img" aria-label="Espaço reservado para retrato da Dra. Amanda Neves Barbosa"><span class="slot-label">Retrato oficial · Build 02</span></div></div>
-        <div data-reveal>
+        <div class="amanda-copy" data-reveal>
           <div class="eyebrow">Dra. Amanda Neves Barbosa</div>
           <h2 id="amanda-title">Conhecimento técnico com um olhar atento para cada pessoa.</h2>
           <span class="role">Cirurgiã-Dentista</span>
@@ -319,6 +394,7 @@
       <div class="container split">
         <div data-reveal><div class="eyebrow">Precisão em cada detalhe</div><h2 id="precision-title">Ciência, técnica e cuidado trabalhando juntos.</h2><p class="body-copy">Recursos diagnósticos, tecnologia aplicada ao tratamento e planejamento detalhado apoiam decisões cuidadosas em cada etapa — sem perder de vista a pessoa por trás de cada sorriso.</p></div>
         <div class="visual-frame" data-reveal><div class="asset-slot" data-asset-slot="amanda-clinical-action" role="img" aria-label="Espaço reservado para imagem da Dra. Amanda em atendimento"><span class="slot-label">Amanda em atendimento · Build 02</span></div></div>
+        <div class="precision-notes" aria-label="Temas desta seção"><span>Endodontia</span><span>Planejamento</span><span>Tecnologia aplicada</span></div>
       </div>
     </section>
 
@@ -339,6 +415,7 @@
           <div class="clinic-slot" data-reveal><div class="asset-slot" data-asset-slot="clinic-reception" role="img" aria-label="Espaço reservado para fotografia da recepção"><span class="slot-label">Recepção · Build 02</span></div></div>
           <div class="clinic-slot" data-reveal><div class="asset-slot" data-asset-slot="clinic-hall" role="img" aria-label="Espaço reservado para fotografia do corredor"><span class="slot-label">Corredor · Build 02</span></div></div>
           <div class="clinic-slot" data-reveal><div class="asset-slot" data-asset-slot="clinic-facade" role="img" aria-label="Espaço reservado para fotografia da fachada"><span class="slot-label">Fachada · Build 02</span></div></div>
+          <div class="clinic-slot" data-reveal><div class="asset-slot" data-asset-slot="clinic-detail" role="img" aria-label="Espaço reservado para detalhe arquitetônico da clínica"><span class="slot-label">Detalhe arquitetônico · Build 02</span></div></div>
         </div>
         <div class="clinic-actions"><a class="button" href="https://maps.app.goo.gl/zNRLqkj5iDmSAQs87" target="_blank" rel="noopener noreferrer">Ver localização</a></div>
       </div>
