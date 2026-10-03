@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vitale Odontologia — Build 01</title>
+  <meta name="description" content="Homepage conceito para a Vitale Odontologia e Dra. Amanda Neves Barbosa, em Monte Carmelo-MG." />
+  <style>
+    :root{
+      --paper:#f7f3ec;
+      --paper-2:#efe8dc;
+      --card:#fffdf8;
+      --ink:#332d27;
+      --muted:#786f66;
+      --champagne:#b89b65;
+      --champagne-soft:#d8c7a7;
+      --wood:#9a744e;
+      --line:rgba(132,108,74,.18);
+      --shadow:0 18px 50px rgba(70,54,39,.08);
+      --radius:22px;
+      --max:1180px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:#ece6dd;color:var(--ink);font-family:Inter,Arial,Helvetica,sans-serif}
+    a{text-decoration:none;color:inherit}
+    .shell{max-width:var(--max);margin:auto;background:var(--paper);box-shadow:0 0 60px rgba(58,45,33,.07)}
+    .container{padding-inline:32px}
+    .serif{font-family:Georgia,'Times New Roman',serif}
+    .eyebrow{font-size:11px;font-weight:800;letter-spacing:.28em;text-transform:uppercase;color:#8e7147}
+    .btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:12px 18px;border-radius:999px;border:1px solid var(--champagne);font-size:13px;font-weight:800;transition:.25s ease}
+    .btn:hover{transform:translateY(-2px)}
+    .btn.primary{background:var(--ink);color:#fff;border-color:var(--ink)}
+    header{position:sticky;top:0;z-index:20;background:rgba(247,243,236,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+    .nav{height:78px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand-v{font-family:Georgia,serif;font-size:34px;font-style:italic;color:var(--champagne);line-height:1}
+    .brand strong{display:block;font-family:Georgia,serif;font-size:22px;font-weight:500;letter-spacing:.02em}
+    .brand small{display:block;font-size:8px;letter-spacing:.32em;color:var(--muted);margin-top:2px}
+    nav{display:flex;gap:22px;font-size:13px;color:var(--muted)}
+    .hamb{display:none;font-size:24px}
+    .hero{display:grid;grid-template-columns:46% 54%;min-height:590px;overflow:hidden;position:relative}
+    .hero-copy{padding:72px 32px 64px 56px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2}
+    .hero h1{font-size:60px;line-height:.98;font-weight:500;letter-spacing:-.035em;margin:16px 0 18px;max-width:520px}
+    .hero p{font-size:16px;line-height:1.65;color:var(--muted);max-width:480px;margin:0}
+    .hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+    .hero-media{position:relative;min-height:590px;background:linear-gradient(145deg,#e6ddd1,#f7f3ec 58%,#d9c6a5);overflow:hidden}
+    .hero-media::before,.hero-media::after{content:"";position:absolute;border:1px solid rgba(184,155,101,.7);border-radius:50%;pointer-events:none}
+    .hero-media::before{width:340px;height:170px;right:-70px;top:100px;transform:rotate(-18deg)}
+    .hero-media::after{width:240px;height:120px;right:76px;top:220px;transform:rotate(21deg)}
+    .placeholder{position:absolute;inset:26px;display:grid;place-items:center;border:1px dashed rgba(117,90,58,.28);border-radius:26px;color:#917e68;font-size:12px;text-align:center;padding:24px}
+    .benefits{display:grid;grid-template-columns:repeat(4,1fr);margin:0 24px;transform:translateY(-14px);position:relative;z-index:4;background:rgba(255,253,248,.94);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);overflow:hidden}
+    .benefit{padding:20px 18px;min-height:106px}.benefit:not(:last-child){border-right:1px solid var(--line)}
+    .benefit b{display:block;font-size:12px;margin-bottom:6px}.benefit span{font-size:11px;line-height:1.45;color:var(--muted)}
+    section{padding:78px 56px}
+    h2{font-family:Georgia,'Times New Roman',serif;font-size:46px;line-height:1.04;font-weight:500;margin:12px 0 18px;letter-spacing:-.02em}
+    .about{display:grid;grid-template-columns:48% 52%;gap:46px;align-items:center}
+    .editorial-media{position:relative;height:430px;background:linear-gradient(145deg,#e5ddd2,#f9f6f0);border-radius:24px;overflow:hidden;box-shadow:var(--shadow)}
+    .editorial-media .placeholder{inset:0;border:0}
+    .about p,.clinic p,.doctor p,.precision p,.results p,.location p{color:var(--muted);line-height:1.7;font-size:15px}
+    .facts{display:grid;gap:12px;margin:24px 0}.fact{font-size:13px;color:var(--muted);padding-left:18px;position:relative}.fact::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--champagne);position:absolute;left:0;top:.5em}
+    .treatments{background:var(--paper-2)}
+    .section-head{display:flex;align-items:end;justify-content:space-between;gap:28px;margin-bottom:28px}.section-head p{max-width:390px;color:var(--muted);line-height:1.6;font-size:14px}
+    .treatment-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .treatment{min-height:184px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;position:relative;overflow:hidden;box-shadow:0 12px 34px rgba(70,54,39,.05)}
+    .treatment .n{font-family:Georgia,serif;color:var(--champagne);font-size:13px}.treatment h3{font-family:Georgia,serif;font-size:23px;font-weight:500;margin:26px 0 8px}.treatment p{font-size:12px;line-height:1.5;color:var(--muted);margin:0}.treatment::after{content:"";position:absolute;width:88px;height:42px;border:1px solid rgba(184,155,101,.34);border-radius:50%;right:-28px;bottom:20px;transform:rotate(-18deg)}
+    .doctor{display:grid;grid-template-columns:52% 48%;gap:0;padding:0;background:#e8dfd3}
+    .doctor-media{min-height:570px;position:relative;background:linear-gradient(145deg,#d8cabb,#f3ece3);overflow:hidden}.doctor-media .placeholder{inset:0;border:0}
+    .doctor-copy{padding:72px 56px;display:flex;flex-direction:column;justify-content:center}.doctor-copy h2{font-size:50px}.chips{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0}.chip{border:1px solid rgba(143,113,71,.3);border-radius:999px;padding:8px 11px;font-size:11px;color:#765f42;background:rgba(255,255,255,.25)}
+    .precision{background:var(--ink);color:#f9f5ee;display:grid;grid-template-columns:43% 57%;gap:44px;align-items:center}.precision p{color:#d3c7bb}.precision .eyebrow{color:#d4b878}.precision-media{height:420px;position:relative;border-radius:24px;background:linear-gradient(145deg,#4a4037,#2c2824);border:1px solid rgba(216,199,167,.22);overflow:hidden}.precision-media .placeholder{inset:0;border-color:rgba(216,199,167,.26);color:#d6c7b5}
+    .results{background:var(--paper);text-align:center}.results p{max-width:640px;margin:0 auto 30px}.result-strip{display:grid;grid-template-columns:1.15fr .85fr .85fr;gap:12px}.result-card{height:300px;border-radius:20px;background:linear-gradient(145deg,#e6ddd3,#f9f6f0);position:relative;overflow:hidden}.result-card .placeholder{inset:0;border:0}
+    .clinic{display:grid;grid-template-columns:34% 66%;gap:34px;align-items:center;background:var(--paper-2)}
+    .clinic-grid{display:grid;grid-template-columns:1.25fr 1fr;grid-template-rows:1fr 1fr;gap:10px}.clinic-shot{min-height:190px;border-radius:18px;background:linear-gradient(145deg,#e6ded4,#faf7f2);position:relative;overflow:hidden}.clinic-shot:first-child{grid-row:1/3}.clinic-shot .placeholder{inset:0;border:0}
+    .reviews{background:var(--paper)}.rating-line{display:flex;align-items:baseline;gap:12px;margin:18px 0 28px}.rating-line strong{font-family:Georgia,serif;font-size:56px;font-weight:500}.rating-line span{font-size:13px;color:var(--muted)}.review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.review{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;min-height:170px}.review p{font-size:13px;color:var(--muted);line-height:1.6}.review small{color:#9b8258}
+    .location{display:grid;grid-template-columns:45% 55%;gap:32px;align-items:stretch;background:var(--paper-2)}.map-placeholder{min-height:360px;border-radius:22px;background:linear-gradient(145deg,#ddd4c8,#f6f1e9);position:relative;overflow:hidden}.map-placeholder .placeholder{inset:0;border:0}
+    .cta-wrap{padding:0 56px 58px;background:var(--paper-2)}.cta{padding:52px;border-radius:26px;background:linear-gradient(120deg,#372f29,#544638);color:#fff;display:flex;align-items:center;justify-content:space-between;gap:32px;position:relative;overflow:hidden}.cta::after{content:"";position:absolute;width:360px;height:160px;border:1px solid rgba(215,191,148,.28);border-radius:50%;right:-90px;top:-40px;transform:rotate(-14deg)}.cta h2{margin:8px 0 10px}.cta p{margin:0;color:#ddd2c7;font-size:14px}.cta .btn{background:#f7f2e9;color:var(--ink);border-color:#f7f2e9;position:relative;z-index:2;white-space:nowrap}
+    footer{padding:42px 56px;border-top:1px solid var(--line);display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:28px;background:var(--paper)}footer h4{margin:0 0 12px;font-size:11px;letter-spacing:.16em;text-transform:uppercase}footer p,footer a{font-size:12px;color:var(--muted);line-height:1.8}.copyright{padding:10px 56px 26px;font-size:11px;color:var(--muted)}
+    @media(max-width:900px){nav{display:none}.hamb{display:block}.nav-actions .btn{display:none}.hero{grid-template-columns:1fr}.hero-media{order:-1;min-height:420px}.hero-copy{padding:54px 28px}.benefits{grid-template-columns:1fr 1fr}.benefit:nth-child(2){border-right:0}.benefit:nth-child(-n+2){border-bottom:1px solid var(--line)}section{padding:60px 28px}.about,.precision,.clinic,.location{grid-template-columns:1fr}.doctor{grid-template-columns:1fr}.doctor-media{min-height:480px}.doctor-copy{padding:56px 28px}.treatment-grid{grid-template-columns:1fr 1fr}.review-grid{grid-template-columns:1fr}.cta-wrap{padding:0 28px 42px}.cta{align-items:flex-start;flex-direction:column}footer{padding:38px 28px;grid-template-columns:1fr 1fr}.copyright{padding-inline:28px}}
+    @media(max-width:560px){.container{padding-inline:18px}.nav{height:68px}.brand strong{font-size:19px}.hero-media{min-height:350px}.hero-copy{padding:42px 20px 36px}.hero h1{font-size:42px}.hero-actions{flex-direction:column;align-items:flex-start}.benefits{margin-inline:12px}.benefit{padding:14px 12px;min-height:92px}section{padding:50px 18px}h2{font-size:36px}.about{gap:28px}.editorial-media{height:330px}.section-head{display:block}.treatment-grid{grid-template-columns:1fr}.treatment{min-height:155px}.doctor-media{min-height:390px}.doctor-copy{padding:48px 20px}.doctor-copy h2{font-size:39px}.precision{gap:28px}.precision-media{height:330px}.result-strip{grid-template-columns:1fr 1fr}.result-card{height:230px}.result-card:first-child{grid-column:1/3}.clinic-grid{grid-template-columns:1fr 1fr}.clinic-shot:first-child{grid-column:1/3;grid-row:auto;min-height:240px}.rating-line strong{font-size:48px}.cta-wrap{padding:0 18px 32px}.cta{padding:36px 24px}footer{padding:34px 18px;grid-template-columns:1fr}.copyright{padding-inline:18px}}
+  </style>
+</head>
+<body>
+<div class="shell">
+  <header>
+    <div class="nav container">
+      <a class="brand" href="#inicio"><span class="brand-v">V</span><span><strong>Vitale</strong><small>ODONTOLOGIA</small></span></a>
+      <nav><a href="#inicio">Início</a><a href="#tratamentos">Tratamentos</a><a href="#amanda">Dra. Amanda</a><a href="#clinica">Clínica</a><a href="#contato">Contato</a></nav>
+      <div class="nav-actions"><a class="btn primary" href="https://wa.me/553493016000" target="_blank" rel="noopener noreferrer">Agendar avaliação →</a><span class="hamb">☰</span></div>
+    </div>
+  </header>
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-copy"><div class="eyebrow">Vitale Odontologia · Monte Carmelo</div><h1 class="serif">Precisão para cuidar. Naturalidade para transformar.</h1><p>Odontologia conduzida com técnica, atenção individual e uma experiência pensada para acolher em cada etapa.</p><div class="hero-actions"><a class="btn primary" href="https://wa.me/553493016000" target="_blank" rel="noopener noreferrer">Agendar pelo WhatsApp →</a><a class="btn" href="#tratamentos">Conhecer tratamentos</a></div></div>
+      <div class="hero-media"><div class="placeholder">IMAGEM OFICIAL DA HERO<br>Dra. Amanda / composição editorial<br>Será substituída na rodada de assets reais</div></div>
+    </section>
+    <section class="benefits" aria-label="Pilares da Vitale"><div class="benefit"><b>Cuidado individual</b><span>Atendimento próximo e planejado para cada paciente.</span></div><div class="benefit"><b>Precisão clínica</b><span>Técnica, diagnóstico e atenção aos detalhes.</span></div><div class="benefit"><b>Tecnologia aplicada</b><span>Recursos que apoiam decisões e tratamentos mais seguros.</span></div><div class="benefit"><b>Resultados naturais</b><span>Saúde, função e estética sem excessos.</span></div></section>
+    <section class="about" id="sobre"><div class="editorial-media"><div class="placeholder">IMAGEM DA EXPERIÊNCIA VITALE<br>Recepção / clínica / detalhe arquitetônico</div></div><div><div class="eyebrow">A experiência Vitale</div><h2>Odontologia que une ciência, precisão e cuidado.</h2><p>A Vitale traduz a atuação da Dra. Amanda Neves Barbosa em uma experiência clara, acolhedora e tecnicamente rigorosa, do diagnóstico ao acompanhamento.</p><div class="facts"><div class="fact">Atendimento humanizado</div><div class="fact">Ambiente contemporâneo e acolhedor</div><div class="fact">Planejamento individualizado</div><div class="fact">Monte Carmelo — MG</div></div></div></section>
+    <section class="treatments" id="tratamentos"><div class="section-head"><div><div class="eyebrow">Tratamentos</div><h2>Cuidado completo, com atenção a cada detalhe.</h2></div><p>Estrutura inicial baseada nos serviços identificados na comunicação pública da Dra. Amanda. Conteúdo final será validado antes da publicação.</p></div><div class="treatment-grid"><article class="treatment"><span class="n">01</span><h3>Endodontia</h3><p>Diagnóstico, planejamento e cuidado técnico para preservar saúde e função.</p></article><article class="treatment"><span class="n">02</span><h3>Cirurgia</h3><p>Procedimentos com planejamento individualizado e atenção à segurança.</p></article><article class="treatment"><span class="n">03</span><h3>Implantes</h3><p>Reabilitação voltada à função, conforto e naturalidade.</p></article><article class="treatment"><span class="n">04</span><h3>Reabilitação Oral</h3><p>Planejamento integrado para devolver equilíbrio, função e estética.</p></article><article class="treatment"><span class="n">05</span><h3>Estética Dental</h3><p>Intervenções orientadas por proporção, harmonia e resultado natural.</p></article><article class="treatment"><span class="n">06</span><h3>Sedação</h3><p>Recurso de apoio ao conforto do paciente quando houver indicação profissional.</p></article></div></section>
+    <section class="doctor" id="amanda"><div class="doctor-media"><div class="placeholder">RETRATO OFICIAL<br>Dra. Amanda Neves Barbosa</div></div><div class="doctor-copy"><div class="eyebrow">Dra. Amanda Neves Barbosa</div><h2>Conhecimento técnico com um olhar atento para cada pessoa.</h2><p>Na Vitale, a presença da Dra. Amanda é parte central da experiência: atualização constante, precisão clínica e cuidado próximo em todas as etapas do tratamento.</p><div class="chips"><span class="chip">Endodontia</span><span class="chip">Cirurgia</span><span class="chip">Implantes</span><span class="chip">Reabilitação</span><span class="chip">Estética</span></div><a class="btn" href="https://www.instagram.com/dra.amandanevesb" target="_blank" rel="noopener noreferrer">Conhecer o Instagram →</a></div></section>
+    <section class="precision" id="precisao"><div><div class="eyebrow">Precisão em cada detalhe</div><h2>Tecnologia a serviço de decisões mais seguras.</h2><p>A comunicação da Dra. Amanda mostra uma prática clínica fortemente ligada à Endodontia, diagnóstico, aperfeiçoamento técnico e recursos de magnificação e imagem. Esta seção será aprofundada com registros reais de atendimento na rodada de assets.</p></div><div class="precision-media"><div class="placeholder">IMAGEM DE AUTORIDADE<br>Dra. Amanda atuando com microscópio / equipamento clínico</div></div></section>
+    <section class="results" id="resultados"><div class="eyebrow">Naturalidade</div><h2>Resultados que respeitam cada sorriso.</h2><p>Os casos clínicos serão apresentados com seleção cuidadosa, privilegiando clareza, naturalidade e uma leitura acolhedora da transformação.</p><div class="result-strip"><div class="result-card"><div class="placeholder">ANTES / DEPOIS<br>seleção estética</div></div><div class="result-card"><div class="placeholder">CASO REAL</div></div><div class="result-card"><div class="placeholder">DETALHE DE RESULTADO</div></div></div></section>
+    <section class="clinic" id="clinica"><div><div class="eyebrow">A clínica</div><h2>Um espaço pensado para acolher.</h2><p>Clareza, organização, iluminação quente e detalhes em madeira e champagne formam uma atmosfera que deve continuar também na experiência digital.</p><a class="btn" href="https://maps.app.goo.gl/zNRLqkj5iDmSAQs87" target="_blank" rel="noopener noreferrer">Abrir no Google Maps →</a></div><div class="clinic-grid"><div class="clinic-shot"><div class="placeholder">RECEPÇÃO</div></div><div class="clinic-shot"><div class="placeholder">CORREDOR / ESPELHO</div></div><div class="clinic-shot"><div class="placeholder">FACHADA / DETALHE</div></div></div></section>
+    <section class="reviews" id="avaliacoes"><div class="eyebrow">Confiança</div><h2>Uma reputação construída em cada atendimento.</h2><div class="rating-line"><strong>5,0</strong><span>Google · número de avaliações a revalidar antes da versão final</span></div><div class="review-grid"><article class="review"><small>★★★★★</small><p>Depoimento real selecionado do Google entrará nesta posição após validação.</p></article><article class="review"><small>★★★★★</small><p>Depoimento real selecionado do Google entrará nesta posição após validação.</p></article><article class="review"><small>★★★★★</small><p>Depoimento real selecionado do Google entrará nesta posição após validação.</p></article></div></section>
+    <section class="location" id="localizacao"><div><div class="eyebrow">Onde estamos</div><h2>Vitale Odontologia em Monte Carmelo.</h2><p>R. Rui Barbosa, 110A · Centro<br>Monte Carmelo — MG</p><a class="btn" href="https://maps.app.goo.gl/zNRLqkj5iDmSAQs87" target="_blank" rel="noopener noreferrer">Ver rota →</a></div><div class="map-placeholder"><div class="placeholder">MAPA / LOCALIZAÇÃO<br>Integração final após validação</div></div></section>
+    <div class="cta-wrap" id="contato"><section class="cta"><div><div class="eyebrow" style="color:#d6bd8f">Seu cuidado pode começar aqui</div><h2>Converse com a Vitale.</h2><p>Entre em contato para informações e agendamento.</p></div><a class="btn" href="https://wa.me/553493016000" target="_blank" rel="noopener noreferrer">Agendar pelo WhatsApp →</a></section></div>
+  </main>
+  <footer><div><a class="brand" href="#inicio"><span class="brand-v">V</span><span><strong>Vitale</strong><small>ODONTOLOGIA</small></span></a></div><div><h4>Contato</h4><p><a href="https://wa.me/553493016000" target="_blank" rel="noopener noreferrer">WhatsApp: (34) 9301-6000</a><br>R. Rui Barbosa, 110A · Centro<br>Monte Carmelo — MG</p></div><div><h4>Instagram</h4><p><a href="https://www.instagram.com/dra.amandanevesb" target="_blank" rel="noopener noreferrer">@dra.amandanevesb</a></p></div></footer>
+  <div class="copyright">© 2026 Vitale Odontologia · Demo conceitual AVERO</div>
+</div>
+</body>
+</html>
