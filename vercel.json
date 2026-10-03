@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/vitale-homepage-build-01.html"
+    }
+  ]
+}
