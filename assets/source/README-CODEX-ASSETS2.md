@@ -1,0 +1,1 @@
+Assets will be stored directly in assets/images/vitale for Codex access.
